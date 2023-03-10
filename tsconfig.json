@@ -8,10 +8,13 @@
     "outDir": "./dist",
     "removeComments": true,
     "esModuleInterop": true,
+    "sourceMap": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "strictPropertyInitialization": false,
     "skipLibCheck": true
   },
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }
