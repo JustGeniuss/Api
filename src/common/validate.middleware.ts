@@ -12,7 +12,6 @@ export class ValidateMiddleware implements IMiddleWare {
 			if (errors.length) {
 				res.status(422).send(errors);
 			} else {
-				console.log(1);
 				next();
 			}
 		});
