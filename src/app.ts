@@ -1,7 +1,6 @@
 import express, { Express } from 'express';
 import { Server } from 'http';
 import { inject, injectable } from 'inversify';
-import { ExceptionFilter } from './errors/exception.filter';
 import { ILogger } from './logger/logger.interface';
 import { TYPES } from './types';
 import { UserController } from './users/user.controller';
@@ -9,7 +8,6 @@ import 'reflect-metadata';
 import { json } from 'body-parser';
 import { IConfigService } from './config/config.service.interface';
 import { IExceptionFilter } from './errors/exception.filter.interface';
-import { IUserController } from './users/user.controller.interface';
 import { PrismaService } from './database/prisma.service';
 import { AuthMiddleware } from './common/auth.middleware';
 
@@ -55,5 +53,9 @@ export class App {
 		this.server = this.app.listen(this.port, () => {
 			this.logger.log(`Server started on ${this.port}`);
 		});
+	}
+
+	public close(): void {
+		this.server.close();
 	}
 }
